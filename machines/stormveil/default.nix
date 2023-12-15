@@ -17,10 +17,56 @@
   networking = {
     hostName = "stormveil";
     hostId = "74037fe1";
+    enableIPv6 = true;
   };
 
-
   time.timeZone = "America/Los_Angeles";
+
+  # Use docker as the OCI tool.
+  virtualisation.docker.enable = true;
+  virtualisation.oci-containers.backend = "docker";
+
+  # Nix/Nixpkgs configurations
+  nixpkgs = {
+    config.allowUnfree = true;
+  };
+
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+    };
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 60d";
+    };
+  };
+
+  # +--------------------+
+  # | Programs/Services  |
+  # +--------------------+
+
+  programs.bash.enableCompletion = true;
+
+  services.openssh.enable = true;
+
+  services.avahi = {
+    enable = true;
+
+    # Whether to enable the mDNS NSS (Name Service Switch) plugin.
+    # Enabling this allows applications to resolve names in the
+    # `.local` domain.
+    nssmdns = true;
+
+    # Whether to register mDNS address records for all local IP
+    # addresses.
+    publish.enable = true;
+    publish.addresses = true;
+  };
+  
+  
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
@@ -55,6 +101,10 @@
       tree
       lsd
     ];
+
+    openssh.authorizedKeys.keyFiles = [
+      ../../data/keys/breakds_samaritan.pub
+    ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -76,8 +126,6 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
