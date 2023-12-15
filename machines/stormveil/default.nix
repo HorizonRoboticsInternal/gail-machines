@@ -8,6 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../users/breakds.nix
+      ../../users/haichao.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -65,8 +67,8 @@
     publish.enable = true;
     publish.addresses = true;
   };
-  
-  
+
+
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
@@ -92,20 +94,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.breakds = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      tree
-      lsd
-    ];
-
-    openssh.authorizedKeys.keyFiles = [
-      ../../data/keys/breakds_samaritan.pub
-    ];
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
