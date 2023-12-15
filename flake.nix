@@ -12,7 +12,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, vital-modules, nixos-home, ... }@inputs: {
+  outputs = { self, nixpkgs, nixos-hardware, ... }@inputs: {
     nixosModules = {
       downgrade-to-nvidia520 = {config, lib, pkgs, ...}:
         let pkgs' = import inputs.nixpkgs-nvidia520 {
