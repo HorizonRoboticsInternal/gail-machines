@@ -107,6 +107,16 @@
     wget
     emacs
     git
+    xh                # Modern curl
+    tldr              # Minimalism man
+    procs             # Modern ps
+    glances           # Modern htop (but slower)
+    fd                # Modern find
+    silver-searcher   # Modern ack
+    duf               # Modern df
+    du-dust           # Modern du
+    lsd               # Modern ls
+    bat               # Modern cat
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
