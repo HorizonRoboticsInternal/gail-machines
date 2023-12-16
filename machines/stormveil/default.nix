@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../../users/breakds.nix
       ../../users/haichao.nix
+      ./services/tailscale.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
