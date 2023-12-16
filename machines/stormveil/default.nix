@@ -118,6 +118,7 @@
     du-dust           # Modern du
     lsd               # Modern ls
     bat               # Modern cat
+    cloudflared
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
