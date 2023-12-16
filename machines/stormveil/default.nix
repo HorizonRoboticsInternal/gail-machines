@@ -11,6 +11,7 @@
       ../../users/breakds.nix
       ../../users/haichao.nix
       ./services/cloudflare.nix
+      ./services/web-services.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
