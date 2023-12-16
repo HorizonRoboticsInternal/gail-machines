@@ -50,6 +50,11 @@
   # | Programs/Services  |
   # +--------------------+
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
+
   programs.bash.enableCompletion = true;
 
   services.openssh.enable = true;

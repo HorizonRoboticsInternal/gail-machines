@@ -28,6 +28,7 @@
       stormveil = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          inputs.home-manager.nixosModules.home-manager
           ./machines/stormveil
         ];
       };
