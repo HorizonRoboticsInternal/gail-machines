@@ -10,6 +10,10 @@
       ./hardware-configuration.nix
       ../../users/breakds.nix
       ../../users/haichao.nix
+      ../../users/haonan.nix
+      ../../users/jerry.nix
+      ../../users/wei.nix
+      ../../users/le.nix
       ./services/cloudflare.nix
       ./services/web-services.nix
     ];
