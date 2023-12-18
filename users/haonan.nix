@@ -8,6 +8,7 @@
     extraGroups = [
 	    "docker"
       "nginx"
+      "gail"
     ];
     packages = with pkgs; [];
   };

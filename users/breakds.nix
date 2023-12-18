@@ -16,6 +16,7 @@
 	    "lxd"
 	    "docker"
       "nginx"
+      "gail"
     ];
     packages = with pkgs; [
       tree

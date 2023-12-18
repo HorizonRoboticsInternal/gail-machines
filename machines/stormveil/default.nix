@@ -14,6 +14,7 @@
       ../../users/jerry.nix
       ../../users/wei.nix
       ../../users/le.nix
+      ../../users/gail.nix
       ./services/cloudflare.nix
       ./services/web-services.nix
     ];
