@@ -17,8 +17,8 @@
     bridgeNetworkName = "filerun_network";
 
     runner = {
-      user = "gail";
-      group = "users";
+      user = config.users.users.gail;
+      group = config.users.extraGroups.users;
     };
 
     dbPasswd = "filerunpasswd";
