@@ -17,7 +17,6 @@
       ../../users/gail.nix
       ./services/cloudflare.nix
       ./services/web-services.nix
-      ./services/filerun.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
