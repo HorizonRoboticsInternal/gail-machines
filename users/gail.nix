@@ -6,7 +6,7 @@
       group = "gail";
       isNormalUser = false;
       uid = 602;
-      extraGroups = [ "extraUsers" ];
+      extraGroups = [ "users" ];
     };
 
     extraGroups.gail = {
