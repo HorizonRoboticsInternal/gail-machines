@@ -30,9 +30,38 @@
 
     systemd.tmpfiles.rules = [
       "d ${root} 775 gail users -"
-      "d ${db}/db 775 gail users -"
-      "d ${settings}/web 775 gail users -"
     ];
+
+    systemd.services.init-filebrowser = {
+      description = "Create files for filebrowser";
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
+
+      serviceConfig.Type = "oneshot";
+
+      script = ''
+        # Path to the file
+        file_path="/var/lib/nas/settings.json"
+
+        # Check if the file exists
+        if [ ! -f "$file_path" ]; then
+            # If the file does not exist, create it and add the specified content
+                echo '{
+                  "port": 80,
+                  "baseURL": "",
+                  "address": "",
+                  "log": "stdout",
+                  "database": "/database/filebrowser.db",
+                  "root": "/srv"
+                }' > "$file_path"
+
+            # Change the ownership to user:gail and group:users
+            chown gail:users "$file_path"
+
+            echo "File created and ownership set to gail:users."
+        fi
+      '';
+    };
 
     # The nginx configuration to expose it if nginx is enabled.
     services.nginx.virtualHosts = lib.mkIf config.services.nginx.enable {
