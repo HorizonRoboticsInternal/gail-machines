@@ -30,6 +30,7 @@
 
     systemd.tmpfiles.rules = [
       "d ${root} 775 gail users -"
+      "f ${db} 775 gail users -"
     ];
 
     systemd.services.init-filebrowser = {
