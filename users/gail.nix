@@ -11,7 +11,7 @@
 
     extraGroups.gail = {
       gid = 602;
-      members = [ "gail" ];
+      members = [ "gail" "haonan" "le" "breakds" "jerry" "haichao" "wei"];
     };
   };
 }
