@@ -89,7 +89,7 @@
       "d ${workDir} 775 gail users -"
       "d ${workDir}/db 775 gail users -"
       "d ${workDir}/web 775 gail users -"
-      "d ${workDir}/user-files 775 gail users -"
+      "d ${workDir}/data 775 gail users -"
     ];
 
     # The nginx configuration to expose it if nginx is enabled.
