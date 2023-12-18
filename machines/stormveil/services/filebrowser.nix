@@ -53,7 +53,10 @@
                   "address": "",
                   "log": "stdout",
                   "database": "/database/filebrowser.db",
-                  "root": "/srv"
+                  "root": "/srv",
+                  "branding": {
+                    "name": "General AI Lab NAS"
+                  }
                 }' > "$file_path"
 
             # Change the ownership to user:gail and group:users
