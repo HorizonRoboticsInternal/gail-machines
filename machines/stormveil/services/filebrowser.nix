@@ -18,7 +18,7 @@
       image = "filebrowser/filebrowser:s6";
       environment = {
         "PUID" = "${toString runner.user.uid}";
-        "PGID" = "${toString runner.user.gid}";
+        "PGID" = "${toString runner.group.gid}";
       };
       ports = [ "${toString port}:80" ];
       volumes = [
