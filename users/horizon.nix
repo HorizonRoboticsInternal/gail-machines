@@ -1,36 +1,26 @@
 { config, lib, pkgs, ... }:
 
 {
-  users.users.breakds = {
-    uid = 1000;
-    description = "Break Yang";
+  users.users.horizon = {
+    uid = 1080;
+    description = "Horizon";
     isNormalUser = true;
     extraGroups = [
-      "wheel"
-      "networkmanager"
-	    "dialout"  # Access /dev/ttyUSB* devices
-	    "uucp"  # Access /ev/ttyS... RS-232 serial ports and devices.
-	    "audio"
-	    "plugdev"  # Allow members to mount/umount removable devices via pmount.
-      "gitea"
-	    "lxd"
 	    "docker"
       "nginx"
       "gail"
     ];
-    packages = with pkgs; [
-      tree
-      lsd
-    ];
+    packages = with pkgs; [];
 
     openssh.authorizedKeys.keyFiles = [
       ../data/keys/breakds_samaritan.pub
+      ../data/keys/lezhao.pub
     ];
   };
 
-  home-manager.users.breakds = {
+  home-manager.users.horizon = {
     home.stateVersion = "23.11";
-    
+
     home.file = {
       ".inputrc".text = ''
         "\e[A": history-search-backward
@@ -46,18 +36,11 @@
       };
     };
 
-    programs.fzf = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-      defaultOptions = [ "--height 50%" "--border" ];
-    };
-
     programs.git = {
       enable = true;
       package = lib.mkDefault pkgs.gitAndTools.gitFull;
-      userName = lib.mkDefault "Break Yang";
-      userEmail = lib.mkDefault "yiqing.yang@horizon.cc";
+      userName = lib.mkDefault "Le Zhao";
+      userEmail = lib.mkDefault "lzh@horizon.cc";
 
       difftastic = {
         enable = true;
