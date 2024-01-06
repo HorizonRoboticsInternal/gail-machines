@@ -18,6 +18,7 @@
       ./services/cloudflare.nix
       ./services/web-services.nix
       ./services/filebrowser.nix
+      ./services/github-runner.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
