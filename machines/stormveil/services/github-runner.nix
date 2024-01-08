@@ -12,7 +12,8 @@
       
       # Leave `user` and `workDir` as null (i.e. not configured) so that they
       # will be dynamically created at runtime.
-      
+
+      user = "root";
       enable = true;
       replace = true;  # Replace any existing runner with the same name.
       url = "https://github.com/HorizonRoboticsInternal/Hobot";
@@ -27,7 +28,8 @@
       
       # Leave `user` and `workDir` as null (i.e. not configured) so that they
       # will be dynamically created at runtime.
-      
+
+      user = "root";      
       enable = true;
       replace = true;  # Replace any existing runner with the same name.
       url = "https://github.com/HorizonRoboticsInternal/Hobot";
